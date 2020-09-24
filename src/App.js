@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import API_KEY from "./config/API-KEY.js";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Header from "./components/Header";
+import Genres from "./components/Genres";
+import MainContent from "./components/MainContent";
+import "./App.css";
 
 function App() {
+  const [genres, setGenres] = useState();
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      )
+      .then((response) => {
+        setGenres(response.data.genres);
+        console.log(response.data.genres);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Genres genres={genres} />
+      <MainContent />
     </div>
   );
 }
