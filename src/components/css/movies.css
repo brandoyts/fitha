@@ -1,7 +1,29 @@
-.movies {
+.movies__container {
   margin: 50px 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.movies__pagination {
+  background-color: black;
+  border-radius: 25px;
+  width: 75%;
+  margin: 50px auto;
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+}
+
+.movies__pagination__link {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 15px;
+}
+
+.movies__pagination__active {
+  background: rgb(131, 206, 131);
 }

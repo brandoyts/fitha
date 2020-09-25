@@ -1,11 +1,12 @@
-import API_KEY from "../config/API-KEY";
 import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import axios from "axios";
 import "./css/movies.css";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 function Movies({ category }) {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
 
   //*FETCH MOVIE BASED ON CATEGORY
@@ -16,7 +17,6 @@ function Movies({ category }) {
       )
       .then((response) => {
         setMovies(response.data.results);
-        console.log(response.data.results);
       })
       .catch((err) => {
         console.log(err);

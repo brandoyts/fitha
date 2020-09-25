@@ -1,5 +1,4 @@
 import React from "react";
-import API_KEY from "../config/API-KEY";
 import "./css/movie-card.css";
 
 function MovieCard({ movie }) {
