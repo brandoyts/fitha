@@ -1,4 +1,3 @@
-import { logDOM } from "@testing-library/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./css/header.css";
@@ -13,10 +12,10 @@ function Header() {
             <Link to="/popular">Popular</Link>
           </li>
           <li>
-            <Link to="top_rated">Top Rated</Link>
+            <Link to="/top_rated">Top Rated</Link>
           </li>
           <li>
-            <Link to="upcoming">Upcoming</Link>
+            <Link to="/upcoming">Upcoming</Link>
           </li>
         </ul>
       </nav>
